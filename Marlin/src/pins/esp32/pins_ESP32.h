@@ -69,18 +69,40 @@
 #define E0_ENABLE_PIN                        139
 //#define E0_CS_PIN                           21
 
+#define E1_STEP_PIN                          137
+#define E1_DIR_PIN                           138
+#define E1_ENABLE_PIN                        139
+//#define E0_CS_PIN                           21
+
 //
 // Temperature Sensors
 //
-#define TEMP_0_PIN                            36  // Analog Input
-#define TEMP_BED_PIN                          39  // Analog Input
+
+#define TEMP_BED_PIN                          36  // Analog Input
+#define TEMP_0_PIN                            39  // Analog Input
+#define TEMP_1_PIN                            34  // Analog Input
 
 //
 // Heaters / Fans
 //
-#define HEATER_0_PIN                           2
-#define FAN_PIN                               13
-#define HEATER_BED_PIN                         4
+#define HEATER_0_PIN                          13
+#define HEATER_1_PIN                          4
+#define HEATER_BED_PIN                        21
+#define FAN_PIN                               25
+#define FAN1_PIN                              22
 
-// SPI
-#define SDSS                                   5
+// CS, MISO, MOSI, and SCK for MAX Thermocouple SPI
+#if HAS_MAX_TC
+  // SPI3
+  #define TEMP_0_CS_PIN                       5  //PIN:29
+  #define TEMP_0_SCK_PIN                      18 //PIN:30
+  #define TEMP_0_MISO_PIN                     19 //PIN:31
+  #define TEMP_0_MOSI_PIN                     23 //PIN:37
+
+
+  // SPI2
+  //#define TEMP_1_CS_PIN                       15
+  //#define TEMP_1_MISO_PIN                     12
+  //#define TEMP_1_MOSI_PIN                     13
+  //#define TEMP_1_SCK_PIN                      14
+#endif
